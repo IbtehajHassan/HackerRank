@@ -23,6 +23,7 @@
   </component>
   <component name="ProjectId" id="1caUPVuwdLdV8j9YRGtVVYulamy" />
   <component name="PropertiesComponent">
+    <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
   </component>
