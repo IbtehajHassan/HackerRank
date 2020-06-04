@@ -1,6 +1,7 @@
 package hsn.ibt.arrays;
 
 import java.io.IOException;
+import java.util.Arrays;
 
 public class DLeftRotation {
 
@@ -20,13 +21,14 @@ public class DLeftRotation {
                 actualRotation = 0;
             }
         }
+        Arrays.stream(outArray).forEach(s -> System.out.print(s + " "));
         return outArray;
     }
 
     public static void main(String[] args) throws IOException {
 
         int[] a = {1, 2, 3, 4, 5};
-        int d = 100;
+        int d = 4;
 
         int[] result = rotLeft(a, d);
     }
