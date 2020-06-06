@@ -2,7 +2,7 @@ package hsn.ibt.linkedlist;
 
 import java.util.Arrays;
 
-public class EasyProblems {
+public class LinkedListPrimitiveOperations {
 
     static void printLinkedList(SinglyLinkedListNode head) {
         while (head != null) {
@@ -79,6 +79,38 @@ public class EasyProblems {
         return head;
     }
 
+    static SinglyLinkedListNode deleteNode(SinglyLinkedListNode head, int position) {
+
+        if (head == null) {
+            return head;
+        }
+
+        SinglyLinkedListNode current = head;
+        SinglyLinkedListNode prev = null;
+
+        int i = 0;
+        while (current.next != null) {
+            if (i == position) {
+                break;
+            }
+            i++;
+            prev = current;
+            current = current.next;
+        }
+
+        if (i != position) {
+            return head;
+        }
+
+        if (prev != null) {
+            prev.next = current.next;
+        } else {
+            head = head.next;
+        }
+
+        return head;
+    }
+
     public static void main(String[] args) {
         String s = "1\n" +
                 "2\n" +
@@ -114,6 +146,10 @@ public class EasyProblems {
         printLinkedList(singlyLinkedList.head);
 
         singlyLinkedList.head = insertNodeAtPosition(singlyLinkedList.head, 7, 9);
+
+        printLinkedList(singlyLinkedList.head);
+
+        singlyLinkedList.head = deleteNode(singlyLinkedList.head, 11);
 
         printLinkedList(singlyLinkedList.head);
 
