@@ -3,7 +3,7 @@ package hsn.ibt.linkedlist;
 import java.util.Arrays;
 
 public class ReverseLinkedList extends LinkedListPrimitiveOperations {
-    static SinglyLinkedListNode reverse(SinglyLinkedListNode head) {
+    public static SinglyLinkedListNode reverse(SinglyLinkedListNode head) {
 
         if (head == null) {
             return head;

@@ -155,7 +155,7 @@ public class LinkedListPrimitiveOperations {
 
     }
 
-    static class SinglyLinkedListNode {
+    public static class SinglyLinkedListNode {
         int data;
         SinglyLinkedListNode next;
 
@@ -167,8 +167,8 @@ public class LinkedListPrimitiveOperations {
         }
     }
 
-    static class SinglyLinkedList {
-        SinglyLinkedListNode head = null;
+    public static class SinglyLinkedList {
+        public SinglyLinkedListNode head = null;
         int size;
 
         public void add(int data) {
