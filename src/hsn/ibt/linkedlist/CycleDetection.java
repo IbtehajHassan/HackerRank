@@ -24,20 +24,6 @@ public class CycleDetection extends LinkedListPrimitiveOperations {
 
     }
 
-    static SinglyLinkedListNode removeDuplicatesRecursive(SinglyLinkedListNode head) {
-
-        if (head.next == null) {
-            return head;
-        }
-        SinglyLinkedListNode returnedHead = removeDuplicatesRecursive(head.next);
-        if (head.data != returnedHead.data) {
-            head.next = returnedHead;
-            return head;
-        } else {
-            return returnedHead;
-        }
-    }
-
     public static void main(String[] args) {
 
         String ss =
