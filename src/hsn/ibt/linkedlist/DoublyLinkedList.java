@@ -10,6 +10,23 @@ public class DoublyLinkedList {
     int size;
 
 
+    static DoublyLinkedListNode sortedInsertRecursive(DoublyLinkedListNode head, int data) {
+        DoublyLinkedListNode newNode = new DoublyLinkedListNode();
+        newNode.data = data;
+        if (head == null) { //1 2 2 / 3
+            return newNode;
+        } else if (data <= head.data) { // inset at the beginning
+            newNode.next = head;
+            head.prev = newNode;
+            return newNode;
+        } else {
+            newNode = sortedInsertRecursive(head.next, data);
+            newNode.prev = head;
+            head.next = newNode;
+        }
+        return head;
+    }
+
     static DoublyLinkedListNode sortedInsert(DoublyLinkedListNode head, int data) {
         DoublyLinkedListNode newNode = new DoublyLinkedListNode();
         newNode.data = data;
@@ -50,7 +67,7 @@ public class DoublyLinkedList {
         try (BufferedReader bufferedReader = new BufferedReader(new InputStreamReader(System.in))) {
             String line;
             while ((line = bufferedReader.readLine()) != null) {
-                doublyLinkedList.head = sortedInsert(doublyLinkedList.head, Integer.parseInt(line));
+                doublyLinkedList.head = sortedInsertRecursive(doublyLinkedList.head, Integer.parseInt(line));
                 printDoublyLinkedList(doublyLinkedList.head);
             }
         } catch (IOException e) {
