@@ -1,8 +1,7 @@
 package hsn.ibt.linkedlist;
 
-import java.io.BufferedReader;
 import java.io.IOException;
-import java.io.InputStreamReader;
+import java.util.Arrays;
 
 public class DoublyLinkedList {
 
@@ -60,32 +59,54 @@ public class DoublyLinkedList {
         }
     }
 
-    public static void main(String[] args) throws IOException {
+    static DoublyLinkedListNode reverse(DoublyLinkedListNode head) {
+        if (head == null)
+            return null;
 
-        DoublyLinkedList doublyLinkedList = new DoublyLinkedList();
+        //The Trick in reversing is that you cannot follow the head pattern as the whole logic is based
+        //on disjointing head from previous and
+        //previous is now becoming the new list
+        DoublyLinkedListNode prev = null;
+        DoublyLinkedListNode nextHead = null;
+        while (head != null) { //null 1 2 3 null
+            nextHead = head.next; //2 3
+            head.next = prev; //null 1
+            prev = head; //1
+            prev.prev = nextHead;
+            head = nextHead; // 2
 
-        try (BufferedReader bufferedReader = new BufferedReader(new InputStreamReader(System.in))) {
-            String line;
-            while ((line = bufferedReader.readLine()) != null) {
-                doublyLinkedList.head = sortedInsertRecursive(doublyLinkedList.head, Integer.parseInt(line));
-                printDoublyLinkedList(doublyLinkedList.head);
-            }
-        } catch (IOException e) {
-            throw e;
         }
 
-//        String s = "6\n" +
-//                "4\n" +
-//                "3\n" +
-//                "2\n" +
-//                "1";
+        return prev;
+
+    }
+
+    public static void main(String[] args) throws IOException {
+
 //        DoublyLinkedList doublyLinkedList = new DoublyLinkedList();
-//        for (int s1 : Arrays.stream(s.split("\n")).mapToInt(Integer::parseInt).toArray()) {
-//            doublyLinkedList.addAtTheBeginning(s1);
+//
+//        try (BufferedReader bufferedReader = new BufferedReader(new InputStreamReader(System.in))) {
+//            String line;
+//            while ((line = bufferedReader.readLine()) != null) {
+//                doublyLinkedList.head = sortedInsertRecursive(doublyLinkedList.head, Integer.parseInt(line));
+//                printDoublyLinkedList(doublyLinkedList.head);
+//            }
+//        } catch (IOException e) {
+//            throw e;
 //        }
-//
-//        printDoublyLinkedList(doublyLinkedList.head);
-//
+
+        String s = "5\n" +
+                "4\n" +
+                "3\n" +
+                "2\n" +
+                "1";
+        DoublyLinkedList doublyLinkedList = new DoublyLinkedList();
+        for (int s1 : Arrays.stream(s.split("\n")).mapToInt(Integer::parseInt).toArray()) {
+            doublyLinkedList.addAtTheBeginning(s1);
+        }
+
+        printDoublyLinkedList(doublyLinkedList.head);
+
 //        doublyLinkedList.head = sortedInsert(doublyLinkedList.head, 5);
 //        printDoublyLinkedList(doublyLinkedList.head);
 //
@@ -98,8 +119,13 @@ public class DoublyLinkedList {
 //        doublyLinkedList.head = sortedInsert(doublyLinkedList.head, 8);
 //        printDoublyLinkedList(doublyLinkedList.head);
 //
-//        doublyLinkedList.head = sortedInsert(doublyLinkedList.head, -1);
+//        doublyLinkedList.head = sortedInsert(doublyLinkedList.head, 1);
 //        printDoublyLinkedList(doublyLinkedList.head);
+
+        doublyLinkedList.head = reverse(doublyLinkedList.head);
+        printDoublyLinkedList(doublyLinkedList.head);
+
+
 
     }
 
