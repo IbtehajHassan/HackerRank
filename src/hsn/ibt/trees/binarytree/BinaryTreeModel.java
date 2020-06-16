@@ -67,15 +67,31 @@ public class BinaryTreeModel {
     }
 
     public void printPostOrder() {
-        if (right != null) {
-            right.printPostOrder();
-        }
         if (left != null) {
             left.printPostOrder();
+        }
+        if (right != null) {
+            right.printPostOrder();
         }
 
         System.out.println(data);
     }
+
+
+    public int height() {
+        int leftT = 0;
+        int rightT = 0;
+
+        if (left != null) {
+            leftT = left.height() + 1;
+        }
+        if (right != null) {
+            rightT = right.height() + 1;
+        }
+
+        return leftT > rightT ? leftT : rightT;
+    }
+
 
     public BinaryTreeModel getLeft() {
         return left;
