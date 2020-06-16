@@ -68,13 +68,12 @@ public class DoublyLinkedList {
         //previous is now becoming the new list
         DoublyLinkedListNode prev = null;
         DoublyLinkedListNode nextHead = null;
-        while (head != null) { //null 1 2 3 null
-            nextHead = head.next; //2 3
-            head.next = prev; //null 1
-            prev = head; //1
+        while (head != null) {
+            nextHead = head.next;
+            head.next = prev;
+            prev = head;
             prev.prev = nextHead;
-            head = nextHead; // 2
-
+            head = nextHead;
         }
 
         return prev;
