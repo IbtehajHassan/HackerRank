@@ -1,5 +1,8 @@
 package hsn.ibt.trees.binarytree;
 
+import java.util.LinkedList;
+import java.util.Queue;
+
 public class BinaryTreeModel {
     BinaryTreeModel left;
     BinaryTreeModel right;
@@ -75,6 +78,23 @@ public class BinaryTreeModel {
         }
 
         System.out.println(data);
+    }
+
+    public void printLevelOrder() {
+        Queue<BinaryTreeModel> queue = new LinkedList<>();
+        queue.offer(this);
+
+        while (!queue.isEmpty()) {
+            BinaryTreeModel node = queue.poll();
+
+            System.out.println(node.data);
+            if (node.left != null) {
+                queue.add(node.left);
+            }
+            if (node.right != null) {
+                queue.add(node.right);
+            }
+        }
     }
 
 

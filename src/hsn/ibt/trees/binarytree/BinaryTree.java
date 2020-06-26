@@ -17,6 +17,7 @@ public class BinaryTree {
         binaryTree.printInOrder();
         binaryTree.printPreOrder();
         binaryTree.printPostOrder();
+        binaryTree.printLevelOrder();
 
 
         BinaryTreePrinter binaryTreePrinter = new BinaryTreePrinter(binaryTree.root);
@@ -61,6 +62,14 @@ public class BinaryTree {
         if (root != null) {
             System.out.println("----------------------------------Start PostOrder----------------------------------");
             root.printPostOrder();
+            System.out.println("-----------------------------------End-----------------------------------");
+        }
+    }
+
+    public void printLevelOrder() {
+        if (root != null) {
+            System.out.println("----------------------------------Start LevelOrder----------------------------------");
+            root.printLevelOrder();
             System.out.println("-----------------------------------End-----------------------------------");
         }
     }
